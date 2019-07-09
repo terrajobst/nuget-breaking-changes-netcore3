@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Microsoft.Fx.ApiCataloging.ObjectModel;
@@ -39,6 +40,8 @@ namespace BreakingChanges
             var assemblyGroup1 = apiCatalog.AssemblyGroups.Single(ag => ag.AreaPath == platform1);
             var assemblyGroup2 = apiCatalog.AssemblyGroups.Single(ag => ag.AreaPath == platform2);
 
+            var assemblies = new HashSet<AssemblyDefinition>(assemblyGroup1.Assemblies);
+
             var csvDocument = new CsvDocument("ID", "Namespace", "Type", "Member", "Package", "Path");
             using (var csvWriter = csvDocument.Append())
             {
@@ -59,7 +62,12 @@ namespace BreakingChanges
                                 isInAssemblyGroup2 = true;
                         }
 
-                        var apiWasRemoved = isInAssemblyGroup1 && !isInAssemblyGroup2;
+                        var isOverride = apiCatalog.LookupDeclarations(api)
+                                                   .Where(d => assemblies.Contains(d.Assembly))
+                                                   .Any(d => d.Syntax.Contains(" override "));
+
+                        var apiWasRemoved = isInAssemblyGroup1 && !isInAssemblyGroup2 && !isOverride;
+
                         if (apiWasRemoved)
                         {
                             var apiId = api.DocId;
