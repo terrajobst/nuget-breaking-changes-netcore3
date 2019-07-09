@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29026.258
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakingChanges", "BreakingChanges\BreakingChanges.csproj", "{6A905B1F-7B36-42B5-809D-479FEB2160CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A905B1F-7B36-42B5-809D-479FEB2160CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A905B1F-7B36-42B5-809D-479FEB2160CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A905B1F-7B36-42B5-809D-479FEB2160CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A905B1F-7B36-42B5-809D-479FEB2160CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6058C65B-2834-40D7-9034-651BC68A4BFD}
+	EndGlobalSection
+EndGlobal
